@@ -37,6 +37,140 @@
   }
 }
 
-.submitButton {
+.searchBar-submitButton {
   display: block;
+  margin: 0 0 0 180px;
+  padding: 8px;
+  border: 0px;
+  background-color: #e6a029;
+  color: white;
+  font-weight: bold;
+}
+
+.header-bg {
+  background-color: #e6a029;
+  overflow: hidden;
+  margin: 0 0 0px 0;
+}
+
+.header-title {
+  color: white;
+  font-family: "Lucida Console", monospace;
+  padding-top: .25cm;
+  padding-bottom: .25cm;
+  margin: 0 0 2px 0;
+}
+
+.searchBar-img {
+  height: auto;
+  width: auto;
+  max-height: 410px;
+}
+
+.searchBar-container {
+  position: relative;
+}
+
+.searchBar-form {
+  float: center;
+  position: absolute;
+  left: 725px;
+  top: 200px;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.searchBar-input {
+  margin: 10px 10px 30px;
+  padding: 5px;
+  border: 0px;
+  font-family: "Lucida Console", monospace;
+}
+
+.searchBar-column {
+  float: left;
+  width: 10%;
+  padding-right: 23.3%;
+}
+
+.searchBar-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.searchBar-col {
+  margin-left: 30px;
+  align-self: center;
+  font-family: "Lucida Console", monospace;
+  font-weight: bold;
+  color: white;
+}
+
+.searchBar-hr {
+  border: 1.5px solid white;
+}
+
+.list-column {
+  float: left;
+  width: 33.3%;
+  margin-top: 50px;
+  position: relative;
+  text-align: left;
+}
+
+.list-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.business-img {
+  width: 95%;
+  height: 95%;
+}
+
+.business-header {
+  display: block;
+  text-align: left;
+  font-family: "Lucida Console", monospace;
+  overflow: auto;
+}
+
+.business-padding {
+  padding-left: 8%;
+  padding-right: 5%;
+}
+
+.business-column {
+  width: 50%;
+  float: left;
+}
+
+.business-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.business-column p {
+  font-family: "Lucida Console", monospace;
+  overflow: auto;
+  margin: auto 10% auto auto;
+}
+
+.business-column h3 {
+  font-family: "Lucida Console", monospace;
+  overflow: auto;
+  margin: auto 10% auto auto;
+}
+
+.business-fancy {
+  color: #e6a029;
+  font-weight: bold;
+}
+
+.business-right {
+  float: right;
+  text-align: right;
 }

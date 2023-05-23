@@ -1,8 +1,9 @@
 import React from 'react';
+import pizza from '../images/pizza.jpeg';
 
 function Business() {
     const info = { 
-        imageSrc : "/logo192.png",
+        imageSrc : pizza,
         address : "1010 Paddington Way",
         name : "MarginOtto Pizzeria",
         city : "Bordertown",
@@ -14,15 +15,34 @@ function Business() {
     };
 
     return (
-        <div>
-            <img src={info.imageSrc} />
-            <h1>{info.name}</h1>
-            <p>{info.address}</p>
-            <p>{info.city}</p>
-            <p>{`${info.state} ${info.zipcode}`}</p>
-            <p>{info.category}</p>
-            <p>{`${info.rating} stars`}</p>
-            <p>{`${info.reviewcount} reviews`}</p>
+        <div className="business-padding">
+            <img src={info.imageSrc} className="business-img" />
+            <h2 className="business-header">{info.name}</h2>
+
+            <div className="business-row">
+                <div className="business-column">
+                    <p>{info.address}</p>
+                </div>
+                <div className="business-column business-right">
+                    <h3 className="business-fancy">{info.category}</h3>
+                </div>
+            </div>
+            <div className="business-row">
+                <div className="business-column">
+                    <p>{info.city}</p>
+                </div>
+                <div className="business-column business-right">
+                    <p className="business-fancy">{`${info.rating} stars`}</p>
+                </div>
+            </div>
+            <div className="business-row">
+                <div className="business-column">
+                    <p>{`${info.state} ${info.zipcode}`}</p>
+                </div>
+                <div className="business-column business-right">
+                    <p>{`${info.reviewcount} reviews`}</p>
+                </div>
+            </div>
         </div>
     );
 }
