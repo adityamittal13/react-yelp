@@ -1,11 +1,11 @@
 import React from 'react';
 import pizza from '../images/pizza.jpeg';
 
-function Business() {
+function Business(props) {
     const info = { 
         imageSrc : pizza,
         address : "1010 Paddington Way",
-        name : "MarginOtto Pizzeria",
+        name : `${props.businessInfo}. MarginOtto Pizzeria`,
         city : "Bordertown",
         state : "NY", 
         zipcode : 10101,
