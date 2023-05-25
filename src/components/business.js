@@ -15,17 +15,24 @@ function Business(props) {
         reviewcount: data.review_count,
         link: data.url
     };
+    
+    const splitAddress = info.address.split(" ");
+    const splitCity = info.city.split(" ");
+    const fullAddress = [...splitAddress, ...splitCity, info.state, info.zipcode].join("+");
+    const mapsRedirect = `https://www.google.com/maps/place/${fullAddress}`;
 
     return (
         <div className="business-padding">
-            <img src={info.imageSrc} className="business-img" />
+            <a href={info.link} target="_blank" rel="noopener noreferrer"><img src={info.imageSrc} className="business-img" /></a>
             <h2 className="business-header">
                 <a href={info.link} className="business-link" target="_blank" rel="noopener noreferrer">{info.name}</a>
             </h2>
 
             <div className="business-row">
                 <div className="business-column">
-                    <p>{info.address}</p>
+                    <p>
+                        <a href={mapsRedirect} className="business-link" target="_blank" rel="noopener noreferrer">{info.address}</a>
+                    </p>
                 </div>
                 <div className="business-column business-right">
                     <h3 className="business-fancy">{info.category}</h3>
@@ -33,7 +40,9 @@ function Business(props) {
             </div>
             <div className="business-row">
                 <div className="business-column">
-                    <p>{info.city}</p>
+                    <p>
+                        <a href={mapsRedirect} className="business-link" target="_blank" rel="noopener noreferrer">{info.city}</a>
+                    </p>
                 </div>
                 <div className="business-column business-right">
                     <p className="business-fancy">{`${info.rating} stars`}</p>
@@ -41,7 +50,9 @@ function Business(props) {
             </div>
             <div className="business-row">
                 <div className="business-column">
-                    <p>{`${info.state} ${info.zipcode}`}</p>
+                    <p>
+                        <a href={mapsRedirect} className="business-link" target="_blank" rel="noopener noreferrer">{`${info.state} ${info.zipcode}`}</a>
+                    </p>
                 </div>
                 <div className="business-column business-right">
                     <p>{`${info.reviewcount} reviews`}</p>
