@@ -2,22 +2,26 @@ import React from 'react';
 import pizza from '../images/pizza.jpeg';
 
 function Business(props) {
+    const data = props.businessInfo;
     const info = { 
-        imageSrc : pizza,
-        address : "1010 Paddington Way",
-        name : `${props.businessInfo}. MarginOtto Pizzeria`,
-        city : "Bordertown",
-        state : "NY", 
-        zipcode : 10101,
-        category : "ITALIAN",
-        rating: 4.5,
-        reviewcount: 90
+        imageSrc : data.image_url,
+        address : data.location.address1,
+        name : data.name,
+        city : data.location.city,
+        state : data.location.state, 
+        zipcode : data.location.zip_code,
+        category : data.categories[0].title,
+        rating: data.rating,
+        reviewcount: data.review_count,
+        link: data.url
     };
 
     return (
         <div className="business-padding">
             <img src={info.imageSrc} className="business-img" />
-            <h2 className="business-header">{info.name}</h2>
+            <h2 className="business-header">
+                <a href={info.link} className="business-link" target="_blank" rel="noopener noreferrer">{info.name}</a>
+            </h2>
 
             <div className="business-row">
                 <div className="business-column">

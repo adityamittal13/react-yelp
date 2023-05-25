@@ -1,3 +1,4 @@
+/* create-react-app */
 .App {
   text-align: center;
 }
@@ -37,17 +38,7 @@
   }
 }
 
-.searchBar-submitButton {
-  display: block;
-  margin: 0 0 0 180px;
-  padding: 8px;
-  border: 0px;
-  background-color: #e6a029;
-  color: white;
-  font-family: "Lucida Console", monospace;
-  font-weight: bold;
-}
-
+/* Header */
 .header-bg {
   background-color: #e6a029;
   overflow: hidden;
@@ -60,6 +51,18 @@
   padding-top: .25cm;
   padding-bottom: .25cm;
   margin: 0 0 2px 0;
+}
+
+/* SearchBar */
+.searchBar-submitButton {
+  display: block;
+  margin: 0 0 0 180px;
+  padding: 8px;
+  border: 0px;
+  background-color: #e6a029;
+  color: white;
+  font-family: "Lucida Console", monospace;
+  font-weight: bold;
 }
 
 .searchBar-img {
@@ -123,6 +126,7 @@
   border: 1.5px solid yellow;
 }
 
+/* BusinessList */
 .list-column {
   float: left;
   width: 33.3%;
@@ -137,6 +141,7 @@
   clear: both;
 }
 
+/* Business */
 .business-img {
   width: 95%;
   height: 95%;
@@ -185,4 +190,8 @@
 .business-right {
   float: right;
   text-align: right;
+}
+
+.business-link {
+  all: unset;
 }

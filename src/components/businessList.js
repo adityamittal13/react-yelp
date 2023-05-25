@@ -9,7 +9,6 @@ function BusinessList(props) {
             let cols = []
             for (let j = 0; j < Math.min(i+3, len)-i; j++) {
                 cols.push(<div className="list-column"><Business businessInfo={l[i+j]}/></div>);
-                console.log(l[i+j]);
             }
             divs.push(<div className="list-row">{cols}</div>);
         }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import cooking from '../images/cooking.jpg';
+import retrieveBusinessListings from '../utils/yelp';
 
-function SearchBar() {
+function SearchBar(props) {
     const [business, setBusiness] = useState("");
     const [location, setLocation] = useState("");
     const [sort, setSort] = useState("bm");
@@ -38,18 +39,20 @@ function SearchBar() {
         } else {
             let selection;
             switch (sort) {
-                case "bm":
-                    selection = "best_match";
+                case "mr":
+                    selection = "review_count";
                     break;
                 case "hr":
-                    selection = "highest_rated";
+                    selection = "rating";
                     break;
                 default:
-                    selection = "most_reviewed";
+                    selection = "best_match";
                     break;
             }
-        
-            console.log(`Searching Yelp with ${business}, ${location}, ${selection}`);
+    
+            retrieveBusinessListings(business, location, selection).then(response => {
+                props.setBusinesses(response);
+            });
         }
     }
 
