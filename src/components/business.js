@@ -3,6 +3,7 @@ import pizza from '../images/pizza.jpeg';
 
 function Business(props) {
     const data = props.businessInfo;
+    console.log(data);
     const info = { 
         imageSrc : data.image_url,
         address : data.location.address1,
