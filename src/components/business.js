@@ -17,8 +17,10 @@ function Business(props) {
         link: data.url
     };
     
-    const splitAddress = info.address.split(" ");
-    const splitCity = info.city.split(" ");
+    console.log(info.address);
+    console.log(info.city);
+    const splitAddress = info.address ? info.address.split(" ") : [];
+    const splitCity = info.city ? info.city.split(" ") : [];
     const fullAddress = [...splitAddress, ...splitCity, info.state, info.zipcode].join("+");
     const mapsRedirect = `https://www.google.com/maps/place/${fullAddress}`;
 
