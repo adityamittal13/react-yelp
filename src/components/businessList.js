@@ -8,7 +8,8 @@ function BusinessList(props) {
         for (let i = 0; i < len; i+=3) {
             let cols = []
             for (let j = 0; j < Math.min(i+3, len)-i; j++) {
-                cols.push(<div className="list-column"><Business businessInfo={l[i+j]}/></div>);
+                cols.push(<div className="list-column">
+                    <Business businessInfo={l[i+j]} setSaved={props.setSaved}/></div>);
             }
             divs.push(<div className="list-row">{cols}</div>);
         }

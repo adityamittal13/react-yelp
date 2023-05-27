@@ -195,3 +195,10 @@
 .business-link {
   all: unset;
 }
+
+.business-button {
+  background-color: #e6a029;
+  color: white;
+  border: 0px;
+  font-size: 14px;
+}

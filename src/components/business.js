@@ -1,8 +1,19 @@
 import React from 'react';
-import pizza from '../images/pizza.jpeg';
 
 function Business(props) {
     const data = props.businessInfo;
+
+    function clickHandler() {
+        const elem = document.getElementById(data.id);
+        if (elem.innerHTML === "Favorite") {
+            elem.innerHTML = "Unfavorite";
+            props.setSaved(prev => [data, ...prev]);
+        } else {
+            elem.innerHTML = "Favorite";
+            props.setSaved(prev => prev.filter(value => value.id !== data.id));
+        }
+    }
+
     console.log(data);
     const info = { 
         imageSrc : data.image_url,
@@ -14,11 +25,10 @@ function Business(props) {
         category : data.categories[0].title,
         rating: data.rating,
         reviewcount: data.review_count,
-        link: data.url
+        link: data.url,
+        phone: data.display_phone.replace(" ", "")
     };
     
-    console.log(info.address);
-    console.log(info.city);
     const splitAddress = info.address ? info.address.split(" ") : [];
     const splitCity = info.city ? info.city.split(" ") : [];
     const fullAddress = [...splitAddress, ...splitCity, info.state, info.zipcode].join("+");
@@ -59,6 +69,14 @@ function Business(props) {
                 </div>
                 <div className="business-column business-right">
                     <p>{`${info.reviewcount} reviews`}</p>
+                </div>
+            </div>
+            <div className="business-row">
+                <div className="business-column">
+                    <button className="business-button" type="submit" onClick={clickHandler} id={data.id}>Favorite</button>
+                </div>
+                <div className="business-column business-right">
+                    <p>{info.phone}</p>
                 </div>
             </div>
         </div>
