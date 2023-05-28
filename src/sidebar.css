@@ -87,7 +87,8 @@ body {
    }
 }
 #left .sidebar .header {
-    width: calc(100% - var(--header-height));
+    /* text-align: left; */
+    width: calc(80% - var(--header-height));
 }
 #left {
     z-index: 5;

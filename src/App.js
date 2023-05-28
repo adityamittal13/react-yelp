@@ -2,14 +2,13 @@ import './App.css';
 import Business from './components/business';
 import BusinessList from './components/businessList';
 import SearchBar from './components/searchBar';
-import Header from './components/header';
 import React, { useState, useEffect } from 'react';
 import './sidebar.css'; // Sidebar functionality
 
 function App() {
   const [businesses, setBusinesses] = useState([]);
   const [saved, setSaved] = useState([]);
-  const [leftOpen, setLeftOpen] = useState(false);
+  const [leftOpen, setLeftOpen] = useState('closed');
 
   
   useEffect(() => {
@@ -17,22 +16,22 @@ function App() {
   }, [saved]);
 
   function toggleSidebar(event) {
-    setLeftOpen(prev => !prev);
+    setLeftOpen(prev => (prev === 'open') ? 'closed' : 'open');
   }
 
-  let leftO = leftOpen ? 'open' : 'closed';
 
   return (
     <div className="App">
       <div id="layout">
-        <div id='left' className={leftO} >
+        <div id='left' className={leftOpen} >
           <button className='icon'
               onClick={toggleSidebar} >Saved
           </button>
-          <div className={`sidebar ${leftO}`} >
+          <div className={`sidebar ${leftOpen}`} >
             <div className='header'>
             </div>
             <div className='content sidebar-content'>
+                <h3 className="header">{`Saved Count: ${saved.length}`}</h3>
                 {saved.map(data => <Business businessInfo={data} setSaved={setSaved}/>)}
             </div>
           </div>
@@ -41,7 +40,7 @@ function App() {
         <div id="main">
           <div className='header'>
               <div className="header-bg">
-                  <h1 className={`header-title title${'left-'+leftO}`}>ravenous</h1>
+                  <h1 className={`header-title title${'left-'+leftOpen}`}>ravenous</h1>
               </div>
           </div>
           <div className='content'>

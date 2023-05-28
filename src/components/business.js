@@ -5,6 +5,7 @@ function Business(props) {
 
     function clickHandler() {
         const elem = document.getElementById(data.id);
+        console.log(`Here: ${elem.innerHTML}`)
         if (elem.innerHTML === "Favorite") {
             elem.innerHTML = "Unfavorite";
             props.setSaved(prev => [data, ...prev]);
@@ -14,7 +15,7 @@ function Business(props) {
         }
     }
 
-    console.log(data);
+    // console.log(data);
     const info = { 
         imageSrc : data.image_url,
         address : data.location.address1,
