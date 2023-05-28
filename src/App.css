@@ -43,14 +43,12 @@
   background-color: #e6a029;
   overflow: hidden;
   margin: 0 0 0px 0;
+  height: 2.13cm;
 }
 
 .header-title {
   color: white;
   font-family: "Lucida Console", monospace;
-  padding-top: .25cm;
-  padding-bottom: .25cm;
-  margin: 0 0 2px 0;
 }
 
 /* SearchBar */
@@ -69,6 +67,7 @@
   height: auto;
   width: auto;
   max-height: 410px;
+  /* padding-right: 8%; */
 }
 
 .searchBar-container {
