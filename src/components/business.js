@@ -36,7 +36,7 @@ function Business(props) {
 
     return (
         <div className="business-padding">
-            <a href={info.link} target="_blank" rel="noopener noreferrer"><img src={info.imageSrc} className="business-img" /></a>
+            <a href={info.link} target="_blank" rel="noopener noreferrer"><img src={info.imageSrc} className="business-img" alt={data.id}/></a>
             <h2 className="business-header">
                 <a href={info.link} className="business-link" target="_blank" rel="noopener noreferrer">{info.name}</a>
             </h2>

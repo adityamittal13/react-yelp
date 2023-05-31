@@ -1,10 +1,5 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea} from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -12,6 +7,11 @@ const theme = createTheme({
         allVariants: {
             fontFamily: 'monospace',
             textAlign: 'left'
+        }
+    }, 
+    palette: {
+        other: {
+            main: "#e6a029"
         }
     }
 })
@@ -41,28 +41,31 @@ function SavedBusiness(props) {
     return (
         <div className="business-card">
             <ThemeProvider theme={theme}>
-                <Card sx={{borderRadius: 3}}>
-                    <CardMedia
-                        sx={{ height: 140}}
-                        image={info.imageSrc}
-                        title={info.name}
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 'bold'}}>
-                        {info.name}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                        {`Address: ${info.address} ${info.city}, ${info.state} ${info.zipcode}`}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                        {`Rating: ${info.rating} stars`}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <Button size="small" href={info.link} target="_blank" variant="text">Learn More</Button>
-                        <Button size="small" className="card-button-right" href={mapsRedirect} target="_blank" variant="text">Maps</Button>
-                    </CardActions>
-                </Card>
+                <CardActionArea href={info.link} target="_blank">
+                    <Card sx={{ borderRadius: 3}}>
+                        <CardMedia
+                            sx={{ height: 140}}
+                            image={info.imageSrc}
+                            title={info.name}
+                        />
+                        <CardContent sx={{border: 1, borderColor: 'other.main', borderBottom: 0}}>
+                            <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 'bold'}}>
+                            {info.name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            {`Address: ${info.address} ${info.city}, ${info.state} ${info.zipcode}`}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                            {`Rating: ${info.rating} stars`}
+                            </Typography>
+
+                        </CardContent>
+                        <CardActions sx={{border: 1, borderColor: 'other.main', borderTop: 0}}>
+                                <Button size="small" href={info.link} target="_blank" variant="text">Learn More</Button>
+                                <Button size="small" className="card-button-right" href={mapsRedirect} target="_blank" variant="text">Maps</Button>
+                        </CardActions>
+                    </Card>
+                </CardActionArea>
             </ThemeProvider>
         </div>
     );

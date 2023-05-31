@@ -58,7 +58,7 @@ function SearchBar(props) {
 
     return (
         <div className="searchBar-container">
-            <img src={cooking} className="searchBar-img"/>
+            <img src={cooking} className="searchBar-img" alt="Search Bar"/>
             <form className="searchBar-form" onSubmit={submitHandler}>
                 <div className="searchBar-row">
                     <div className="searchBar-column">
