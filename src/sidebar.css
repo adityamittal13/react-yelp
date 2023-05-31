@@ -2,7 +2,7 @@
     outline: 1px solid black;
 }
 :root {
-    --landscape-width: 35;
+    --landscape-width: 31;
     --portrait-width: 80vw;
     --header-height: 2.13cm;
     --secs: 0.4s;
@@ -88,6 +88,9 @@ body {
 }
 #left .sidebar .header {
     width: calc(80% - var(--header-height));
+    left: var(--header-height);
+    margin-bottom: 0;
+    font-family: 'Lucida Console', monospace;
 }
 #left {
     z-index: 5;
@@ -97,7 +100,4 @@ body {
 }
 #left .sidebar.closed {
     transform: translateX(-100%);
-}
-#left .sidebar .header {
-    left: var(--header-height);
 }
