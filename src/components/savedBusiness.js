@@ -41,14 +41,14 @@ function SavedBusiness(props) {
     return (
         <div className="business-card">
             <ThemeProvider theme={theme}>
-                <CardActionArea href={info.link} target="_blank">
-                    <Card sx={{ borderRadius: 3}}>
+                <CardActionArea href={info.link} target="_blank" sx={{ maxWidth: 400, mx: 'auto'}}>
+                    <Card sx={{border: 1, borderColor: 'other.main', borderRadius:3}}>
                         <CardMedia
                             sx={{ height: 140}}
                             image={info.imageSrc}
                             title={info.name}
                         />
-                        <CardContent sx={{border: 1, borderColor: 'other.main', borderBottom: 0}}>
+                        <CardContent>
                             <Typography gutterBottom variant="h5" component="div" sx={{fontWeight: 'bold'}}>
                             {info.name}
                             </Typography>
@@ -60,7 +60,7 @@ function SavedBusiness(props) {
                             </Typography>
 
                         </CardContent>
-                        <CardActions sx={{border: 1, borderColor: 'other.main', borderTop: 0}}>
+                        <CardActions>
                                 <Button size="small" href={info.link} target="_blank" variant="text">Learn More</Button>
                                 <Button size="small" className="card-button-right" href={mapsRedirect} target="_blank" variant="text">Maps</Button>
                         </CardActions>

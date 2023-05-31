@@ -33,7 +33,9 @@ body {
     box-sizing: border-box;
     height: calc(100vh - var(--header-height));
     background-color: white;
-    border: 1px solid black;
+}
+#layout .line {
+    border-right: 1.5px solid black;
 }
 .sidebar-content {
     padding-left: 10px;
@@ -87,9 +89,10 @@ body {
    }
 }
 #left .sidebar .header {
-    width: calc(80% - var(--header-height));
-    left: var(--header-height);
+    margin-left: 30%;
+    margin-right: 30%;
     margin-bottom: 0;
+    padding-bottom: 0;
     font-family: 'Lucida Console', monospace;
 }
 #left {

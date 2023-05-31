@@ -30,8 +30,8 @@ function App() {
           <div className={`sidebar ${leftOpen}`} >
             <div className='header'>
             </div>
-            <div className='content sidebar-content'>
-                <h3 className="header">{`Saved Count: ${saved.length}`}</h3>
+            <div className='content sidebar-content line'>
+                <h2 className="header">{`Saved Count: ${saved.length}`}</h2>
                 {saved.map(data => (
                   <div>
                     <SavedBusiness businessInfo={data}/>
