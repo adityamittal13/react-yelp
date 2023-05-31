@@ -87,7 +87,6 @@ body {
    }
 }
 #left .sidebar .header {
-    /* text-align: left; */
     width: calc(80% - var(--header-height));
 }
 #left {

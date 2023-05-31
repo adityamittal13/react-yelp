@@ -201,3 +201,11 @@
   border: 0px;
   font-size: 14px;
 }
+
+/* Card Button */
+
+.card-button-right {
+  text-align: right;
+  display: block;
+  margin-left: 50px;
+}

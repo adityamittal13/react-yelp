@@ -1,5 +1,5 @@
 import './App.css';
-import Business from './components/business';
+import SavedBusiness from './components/savedBusiness';
 import BusinessList from './components/businessList';
 import SearchBar from './components/searchBar';
 import React, { useState, useEffect } from 'react';
@@ -32,7 +32,12 @@ function App() {
             </div>
             <div className='content sidebar-content'>
                 <h3 className="header">{`Saved Count: ${saved.length}`}</h3>
-                {saved.map(data => <Business businessInfo={data} setSaved={setSaved}/>)}
+                {saved.map(data => (
+                  <div>
+                    <SavedBusiness businessInfo={data}/>
+                    <br/>
+                  </div>
+                ))}
             </div>
           </div>
         </div>

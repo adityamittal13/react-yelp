@@ -15,7 +15,6 @@ function Business(props) {
         }
     }
 
-    // console.log(data);
     const info = { 
         imageSrc : data.image_url,
         address : data.location.address1,
