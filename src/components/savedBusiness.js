@@ -48,8 +48,8 @@ function SavedBusiness(props) {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" href={info.url} target="_blank" variant="contained">Learn More</Button>
-                    <Button size="small" className="card-button-right" href={mapsRedirect} target="_blank" variant="contained">Maps</Button>
+                    <Button size="small" href={info.link} target="_blank" variant="text">Learn More</Button>
+                    <Button size="small" className="card-button-right" href={mapsRedirect} target="_blank" variant="text">Maps</Button>
                 </CardActions>
             </Card>
         </div>
