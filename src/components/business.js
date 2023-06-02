@@ -5,6 +5,7 @@ function Business(props) {
 
     function clickHandler() {
         const elem = document.getElementById(data.id);
+        console.log(`Here: ${elem.innerHTML}`)
         if (elem.innerHTML === "Favorite") {
             elem.innerHTML = "Unfavorite";
             props.setSaved(prev => [data, ...prev]);
@@ -27,8 +28,6 @@ function Business(props) {
         link: data.url,
         phone: data.display_phone.replace(" ", "")
     };
-
-    const favoriteText = (props.saved.some(savedItem => data.id === savedItem.id)) ? "Unfavorite" : "Favorite";
     
     const splitAddress = info.address ? info.address.split(" ") : [];
     const splitCity = info.city ? info.city.split(" ") : [];
@@ -74,7 +73,7 @@ function Business(props) {
             </div>
             <div className="business-row">
                 <div className="business-column">
-                    <button className="business-button" type="submit" onClick={clickHandler} id={data.id}>{favoriteText}</button>
+                    <button className="business-button" type="submit" onClick={clickHandler} id={data.id}>Favorite</button>
                 </div>
                 <div className="business-column business-right">
                     <p>{info.phone}</p>

@@ -53,13 +53,19 @@ body {
     transition: width var(--secs);
     width: 0;
 }
+/* @media (orientation: landscape) {
+    #left.open {
+        width: calc(1% * var(--landscape-width));
+   }
+} */
 #left .icon {
     position: absolute;
     z-index: 10;
-    /* width: var(--header-height); */
+    width: var(--header-heigh);
     height: var(--header-height);
     line-height: var(--header-height);
     padding-left: 20px;
+    /* font-size: var(--header-height); */
     font-family: "Lucida Console", monospace;
     font-size: 20px;
     background-color: var(--bg-left);
@@ -68,9 +74,6 @@ body {
     text-align: center;
     user-select: none;
     cursor: pointer;
-}
-.left-margin {
-    margin-left: 150px;
 }
 #left .sidebar {
     transition: transform var(--secs);
