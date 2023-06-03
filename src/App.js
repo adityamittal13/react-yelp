@@ -3,8 +3,7 @@ import SavedBusiness from './components/savedBusiness';
 import BusinessList from './components/businessList';
 import SearchBar from './components/searchBar';
 import LoginForm from './components/LoginForm';
-// import retrieveUserAccounts from './utils/server';
-import users from './data/users';
+import users from './data/users'
 import './App.css';
 import './sidebar.css'; // Sidebar functionality
 
@@ -33,10 +32,7 @@ function App() {
 
     setLogin(prev => {
       const userIndex = accounts.findIndex(account => account.email === prev.email && account.password === prev.password);
-      
-      if (userIndex === -1) {
-        alert("error");
-      }
+      const user = (userIndex === -1) ? (alert("error")) : accounts[userIndex];
 
       accounts[userIndex] = {
         email: prev.email,
