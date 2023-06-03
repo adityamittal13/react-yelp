@@ -5,6 +5,7 @@
 /src/utils/secret.js
 /.pnp
 .pnp.js
+/server/.env
 
 # testing
 /coverage
