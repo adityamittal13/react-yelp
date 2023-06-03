@@ -2,7 +2,14 @@ import './App.css';
 import SavedBusiness from './components/savedBusiness';
 import BusinessList from './components/businessList';
 import SearchBar from './components/searchBar';
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
+=======
+import LoginForm from './components/LoginForm';
+// import retrieveUserAccounts from './utils/server';
+import users from './data/users';
+import './App.css';
+>>>>>>> routing
 import './sidebar.css'; // Sidebar functionality
 
 function App() {
@@ -20,6 +27,7 @@ function App() {
   }
 
 
+<<<<<<< HEAD
   return (
     <div className="App">
       <div id="layout">
@@ -28,6 +36,41 @@ function App() {
               onClick={toggleSidebar} >Saved
           </button>
           <div className={`sidebar ${leftOpen}`} >
+=======
+  function submitHandler(event) {
+    event.preventDefault();
+
+    setLogin(prev => {
+      const userIndex = accounts.findIndex(account => account.email === prev.email && account.password === prev.password);
+      
+      if (userIndex === -1) {
+        alert("error");
+      }
+
+      accounts[userIndex] = {
+        email: prev.email,
+        password: prev.password,
+        saved: saved
+      }
+
+      return {
+        inLogin: true,
+        email: '', 
+        password: ''
+      }
+    });
+
+    setSaved([]);
+    setBusinesses([]);
+    setLeftOpen('closed');
+  }
+
+  if (login.inLogin) {
+    return (
+      <div className="App">
+        <div id="layout">
+          <div id="main">
+>>>>>>> routing
             <div className='header'>
             </div>
             <div className='content sidebar-content line'>

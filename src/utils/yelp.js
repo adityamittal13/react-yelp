@@ -1,4 +1,4 @@
-import ApiKey from './secret';
+import { ApiKey } from './secret';
 
 const retrieveBusinessListings = async (business, location, sort) => {
     const apiKey = ApiKey;
