@@ -32,7 +32,10 @@ function App() {
 
     setLogin(prev => {
       const userIndex = accounts.findIndex(account => account.email === prev.email && account.password === prev.password);
-      const user = (userIndex === -1) ? (alert("error")) : accounts[userIndex];
+      
+      if (userIndex === -1) {
+        alert("error");
+      }
 
       accounts[userIndex] = {
         email: prev.email,

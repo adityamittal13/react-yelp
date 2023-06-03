@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { TextField, Button } from "@mui/material";
-import { data } from '../data/users';
 
 function LoginForm(props) {
     const [email, setEmail] = useState("")
