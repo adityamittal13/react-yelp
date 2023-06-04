@@ -3,7 +3,9 @@ import SavedBusiness from './components/savedBusiness';
 import BusinessList from './components/businessList';
 import SearchBar from './components/searchBar';
 import LoginForm from './components/LoginForm';
-import users from './data/users'
+import fetchData from './utils/fetchData';
+import updateAccount from './utils/updateAccount';
+import addAccount from './utils/addAccount';
 import './App.css';
 import './sidebar.css'; // Sidebar functionality
 
@@ -11,16 +13,22 @@ function App() {
   const [businesses, setBusinesses] = useState([]);
   const [saved, setSaved] = useState([]);
   const [leftOpen, setLeftOpen] = useState('closed');
+  const [newAccount, setNewAccount] = useState(false);
   const [login, setLogin] = useState({
     inLogin: true,
     email: '',
     password: ''
   });
-  const [accounts, setAccounts] = useState(users);
+  const [accounts, setAccounts] = useState([]);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    console.log(users);
-  }, [accounts])
+    fetchData().then(response => {
+      setAccounts(response);
+      console.log(accounts);
+    })
+  // eslint-disable-next-line
+  }, []);
 
   function toggleSidebar(event) {
     setLeftOpen(prev => (prev === 'open') ? 'closed' : 'open');
@@ -30,29 +38,42 @@ function App() {
   function submitHandler(event) {
     event.preventDefault();
 
-    setLogin(prev => {
-      const userIndex = accounts.findIndex(account => account.email === prev.email && account.password === prev.password);
-      
+    if (clicked) {
+      return;
+    }
+
+    setClicked(true);
+
+    if (newAccount) {
+      addAccount(login.email, login.password, saved).then(response => {});
+    } else {
+      const userIndex = accounts.findIndex(account => account.email === login.email && account.password === login.password);
+
       if (userIndex === -1) {
+        console.log(accounts);
+        console.log(login);
         alert("error");
       }
 
       accounts[userIndex] = {
-        email: prev.email,
-        password: prev.password,
+        ...accounts[userIndex],
+        email: login.email,
+        password: login.password,
         saved: saved
       }
 
-      return {
+      updateAccount(accounts[userIndex]).then(response => {});
+    }
+  
+    setLogin({
         inLogin: true,
         email: '', 
-        password: ''
-      }
-    });
-
+        password: ''});
     setSaved([]);
     setBusinesses([]);
     setLeftOpen('closed');
+    setClicked(false);
+    setNewAccount(false);
   }
 
   if (login.inLogin) {
@@ -66,7 +87,7 @@ function App() {
                 </div>
             </div>
             <div className="content">
-              <LoginForm setLogin={setLogin} accounts={accounts} setAccounts={setAccounts} setSaved={setSaved}/>
+              <LoginForm setLogin={setLogin} accounts={accounts} setAccounts={setAccounts} setNewAccount={setNewAccount} setSaved={setSaved}/>
             </div>
           </div>
         </div>

@@ -27,6 +27,7 @@ router.post("/", async (req, res) => {
     email: req.body.email,
     password: req.body.password,
     saved: req.body.saved,
+    timestamp: req.body.timestamp
   };
   let collection = await db.collection("accounts");
   let result = await collection.insertOne(newDocument);
@@ -40,7 +41,7 @@ router.patch("/:id", async (req, res) => {
     $set: {
       email: req.body.email,
       password: req.body.password,
-      saved: req.body.saved
+      saved: req.body.saved,
     }
   };
 

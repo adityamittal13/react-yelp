@@ -2,48 +2,55 @@
 
 import React, { useState } from 'react';
 import { TextField, Button } from "@mui/material";
+import fetchData from '../utils/fetchData';
 
 function LoginForm(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [emailError, setEmailError] = useState(false)
     const [passwordError, setPasswordError] = useState(false)
-    const [firstClick, setFirstClick] = useState(true);
  
     const handleSubmit = (event) => {
         event.preventDefault()
- 
-        setEmailError(false)
-        setPasswordError(false)
- 
-        if (email === '') {
-            setEmailError(true)
-        }
-        if (password === '') {
-            setPasswordError(true)
-        }
+        
+        fetchData().then(response => {
+            props.setAccounts(response);
+            console.log(props.accounts);
+            console.log(response);
 
-        const filtered = props.accounts.filter(user => email === user.email && password === user.password)
-        console.log(filtered);
-        if (filtered.length > 0) {
-            props.setSaved(filtered[0].saved);
-            props.setLogin({inLogin: false,
-                email: email,
-                password : password
-            });
-        } else if (email && password && firstClick) {
-            const elem = document.getElementById('ravenous-login-form');
-            const warning =  "<small style='color: red'>This will create a new account. Confirm this choice by clicking above.</small>"
-            elem.innerHTML = elem.innerHTML + (elem.innerHTML.includes(warning) ? "" : warning);
-            setFirstClick(false);
-        } else if (email && password && !firstClick) {
-            props.setSaved([]);
-            props.setLogin({inLogin: false,
-                        email: email,
-                        password : password
-            });
-            props.setAccounts(prev => [{email, password, saved: []}, ...prev]);
-        }
+            setEmailError(false)
+            setPasswordError(false)
+    
+            if (email === '') {
+                setEmailError(true)
+            }
+            if (password === '') {
+                setPasswordError(true)
+            }
+
+            const filtered = response.filter(user => email === user.email && password === user.password)
+            console.log(filtered);
+            if (filtered.length > 0) {
+                props.setSaved(filtered[0].saved);
+                props.setLogin({inLogin: false,
+                    email: email,
+                    password : password
+                });
+            } else if (email && password) {
+                const elem = document.getElementById('ravenous-login-form');
+                const warning =  "<small style='color: red'>This will create a new account.</small>"
+                elem.innerHTML = elem.innerHTML + (elem.innerHTML.includes(warning) ? "" : warning);
+
+                setTimeout(() => {
+                    props.setNewAccount(true);
+                    props.setSaved([]);
+                    props.setLogin({inLogin: false,
+                                email: email,
+                                password : password
+                    });
+                }, 1000);
+            }
+        })
     }
 
     return (

@@ -19,7 +19,7 @@ const retrieveBusinessListings = async (business, location, sort) => {
         const jsonResponse = await response.json();
         return jsonResponse.businesses;
     } else {
-        alert("Error with request!");
+        alert("Error with retrieveBusinessListing request!");
         return [];
     }
 } 
