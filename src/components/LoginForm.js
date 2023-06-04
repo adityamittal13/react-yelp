@@ -15,8 +15,6 @@ function LoginForm(props) {
         
         fetchData().then(response => {
             props.setAccounts(response);
-            console.log(props.accounts);
-            console.log(response);
 
             setEmailError(false)
             setPasswordError(false)
@@ -28,8 +26,7 @@ function LoginForm(props) {
                 setPasswordError(true)
             }
 
-            const filtered = response.filter(user => email === user.email && password === user.password)
-            console.log(filtered);
+            const filtered = response.filter(user => email === user.email && password === user.password);
             if (filtered.length > 0) {
                 props.setSaved(filtered[0].saved);
                 props.setLogin({inLogin: false,

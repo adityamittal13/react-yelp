@@ -25,7 +25,6 @@ function App() {
   useEffect(() => {
     fetchData().then(response => {
       setAccounts(response);
-      console.log(accounts);
     })
   // eslint-disable-next-line
   }, []);
@@ -50,8 +49,6 @@ function App() {
       const userIndex = accounts.findIndex(account => account.email === login.email && account.password === login.password);
 
       if (userIndex === -1) {
-        console.log(accounts);
-        console.log(login);
         alert("error");
       }
 
